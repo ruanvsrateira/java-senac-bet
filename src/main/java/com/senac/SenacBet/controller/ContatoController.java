@@ -1,5 +1,8 @@
 package com.senac.SenacBet.controller;
 
+import com.senac.SenacBet.dao.ContatoDAO;
+import com.senac.SenacBet.model.Contato;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -7,13 +10,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class ContatoController {
 
+    @Autowired
+    ContatoDAO dao;
+
     @GetMapping("/contato")
-    public String abrirContato(){
+    public String abrirContato(Contato contato){
         return "contato";
     }
 
     @PostMapping("/contato")
-    public String processarContato(){
+    public String processarContato(Contato contato){
+        dao.save(contato);
         return "contato";
     }
 

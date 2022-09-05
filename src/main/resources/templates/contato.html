@@ -5,15 +5,15 @@
     <title>Contato</title>
 </head>
 <body>
-    <form action="/contato" method="post">
-        <label>Nome:</label>
-        <input name="nome" type="text" /><br/><br/>
+    <form action="/contato" method="post" th:object="${contato}">
+        <label for="nome">Nome:</label>
+        <input name="nome" id="nome" type="text" th:field="*{nome}"/><br/><br/>
 
         <label>E-mail:</label>
-        <input name="email" type="text" /><br/><br/>
+        <input name="email" type="text" th:field="*{email}"/><br/><br/>
 
         <label>Mensagem:</label>
-        <input name="mensagem" type="text" /><br/><br/>
+        <input name="mensagem" type="text" th:field="*{mensagem}"/><br/><br/>
 
         <input type="submit" value="Enviar">
     </form>

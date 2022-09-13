@@ -1,6 +1,7 @@
 package com.senac.SenacBet.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Contato {
@@ -12,9 +13,11 @@ public class Contato {
     @Column
     private String nome;
 
+    @NotEmpty(message="O E-mail precisa ser preenchido!")
     @Column
     private String email;
 
+    @NotEmpty(message="A Mensagem deve ser preenchida!")
     @Column
     private String mensagem;
 

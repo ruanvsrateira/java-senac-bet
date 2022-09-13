@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Contato</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div th:include="commons/menu.html"></div>
+
+<div class="container mt-4">
+    <table class="table table-bordered border-dark">
+        <thead>
+        <tr>
+            <th>Id:</th>
+            <th>Nome:</th>
+            <th>Email:</th>
+            <th>Mensagem</th>
+        </tr>
+        </thead>
+        <tbody>contato
+        <tr th:each="contato : ${contatos}">
+            <td th:text="${contato.id}"></td>
+            <td th:text="${contato.nome}"></td>
+            <td th:text="${contato.email}"></td>
+            <td th:text="${contato.mensagem}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
